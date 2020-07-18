@@ -5,7 +5,7 @@ We all work for hours on sytem, forgetting to exercise our eyes, body and drink 
 
 Note: You only have to run the program and ends it when your working hour is over.
 
-Requirements: You must have these files in your folder from where you are running this program
+Requirements: You must have these files in your folder from where you are running this program: 
  water.mp3
  eyeexercise.mp3
  physicalexercise.mp3

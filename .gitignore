@@ -1,129 +1,41 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+import time
+from pygame import mixer
 
-# C extensions
-*.so
+def music_control(file,stop):
+    """This function gives music control"""
+    mixer.init()
+    mixer.music.load(file)
+    mixer.music.play(-1)
+    a = input()
+    if a == stop:
+        mixer.music.stop()
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# def write_log(log_message):
+#     with open("healthy_programmer_Log.py","a") as f:
+#         f.write(f"{log_message} at {time.time()} \n ")
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+if __name__ == '__main__':
+    init_water = time.time()
+    init_eyes = time.time()
+    init_physical_exercise = time.time()
+    water_seconds = 2400 # 40 minutes
+    eyes_seconds = 1200 # 20 minutes
+    exercise_seconds = 2700 # 45 minutes
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+    print("*** Welcome to Healthy Programmer ***\n\nAt every\n\t 40 minutes, drinking water time \n\t 30 minutes, eye exercise time \n\t 45 minutes, Physical activity time\n\nTo stay healthy while using laptop for hours is must! Open this app and let me take care of you! Have a good day. \n ")
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+    while True:
+        if time.time() - init_water > water_seconds:
+            print("Water Drinking time! Type Drank to stop the alarm")
+            music_control("water.mp3","Drank")
+            init_water= time.time()
+        if time.time() - init_eyes > eyes_seconds:
+            print("Eye Exercise time! Type EyeDone to stop the alarm")
+            # music_control("eyeexercise.mp3","EyeDone")
+            init_eyes=time.time()
+        if time.time() - init_physical_exercise > exercise_seconds:
+            print("Physical Exercise time! Type ExDone to stop the alarm")
+            music_control("physcialexercise.mp3","ExDone")
+            init_physical_exercise=time.time()
 
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+    print("Your duty hours is over! Thank you, Good Day")
